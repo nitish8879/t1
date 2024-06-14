@@ -13,6 +13,7 @@ void main() {
       theme: Get.theme.copyWith(
         scaffoldBackgroundColor: AppColors.kWhite,
       ),
+      debugShowCheckedModeBanner: false,
     ),
   );
 }

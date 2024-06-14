@@ -2,5 +2,5 @@ import 'package:get/get.dart';
 
 class AuthService extends GetxService {
   static AuthService get to => Get.find();
-  bool isUserLoggedIn = false;
+  Future<bool> get userLoggedIn async => false;
 }
