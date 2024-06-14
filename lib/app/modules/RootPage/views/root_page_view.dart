@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/app/routes/app_pages.dart';
+import 'package:flutter_application_1/app/utils/app_images.dart';
 
 import 'package:get/get.dart';
 
@@ -10,9 +12,22 @@ class RootPageView extends GetView<RootPageController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetRouterOutlet(
-      initialRoute: Routes.DASHBOARD_PAGE,
-      anchorRoute: Routes.ROOT_PAGE,
+    return Scaffold(
+      body: Obx(
+        () {
+          return controller.isLoading.value
+              ? Center(
+                  child: Image.asset(
+                    AppImages.mainLogoWithName,
+                    width: 120,
+                  ),
+                )
+              : GetRouterOutlet(
+                  initialRoute: Routes.DASHBOARD_PAGE,
+                  anchorRoute: Routes.ROOT_PAGE,
+                );
+        },
+      ),
     );
   }
 }
