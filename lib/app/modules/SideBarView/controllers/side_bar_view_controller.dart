@@ -27,14 +27,24 @@ class SideBarViewController extends GetxController {
   Future<void> addData() async {
     var newTab = TabModel(name: "Home$i", path: "/home$i");
     i++;
-    ref.child("tabs").push().set(newTab.toJson());
+    ref.child("tabs").push().set(newTab.toJson()).catchError((e) {
+      Get.snackbar(
+        "Error",
+        e.toString(),
+      );
+    });
   }
 
   Future<void> removeItem(String? key) async {
     if (Get.find<DashboardPageController>().selectedTab?.uid == key) {
       Get.find<DashboardPageController>().selectedTab = null;
     }
-    ref.child("tabs/$key").remove();
+    ref.child("tabs/$key").remove().catchError((e) {
+      Get.snackbar(
+        "Error",
+        e.toString(),
+      );
+    });
   }
 
   @override
