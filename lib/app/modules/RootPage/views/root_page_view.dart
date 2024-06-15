@@ -23,7 +23,7 @@ class RootPageView extends GetView<RootPageController> {
                   ),
                 )
               : GetRouterOutlet(
-                  initialRoute: controller.intialPage,
+                  initialRoute: Routes.DASHBOARD_PAGE,
                   anchorRoute: Routes.ROOT_PAGE,
                 );
         },

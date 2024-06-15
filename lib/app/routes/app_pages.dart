@@ -31,20 +31,21 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.ROOT_PAGE,
+      participatesInRootNavigator: true,
       page: () => RootPageView(),
       binding: RootPageBinding(),
       children: [
         GetPage(
-          name: _Paths.SIDE_BAR_VIEW,
-          page: () => SideBarViewView(),
-          binding: SideBarViewBinding(),
+          name: _Paths.DASHBOARD_PAGE,
+          page: () => DashboardPageView(),
+          binding: DashboardPageBinding(),
         ),
+        // GetPage(
+        //   name: _Paths.SIDE_BAR_VIEW,
+        //   page: () => SideBarViewView(),
+        //   binding: SideBarViewBinding(),
+        // ),
       ],
-    ),
-    GetPage(
-      name: _Paths.DASHBOARD_PAGE,
-      page: () => DashboardPageView(),
-      binding: DashboardPageBinding(),
     ),
   ];
 }

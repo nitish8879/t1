@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 class RootPageController extends GetxController {
   var isLoading = true.obs;
-  late String intialPage;
   @override
   void onInit() {
     super.onInit();
@@ -20,13 +19,11 @@ class RootPageController extends GetxController {
     if (!isLoading.value) {
       isLoading.value = true;
     }
-    await Future.delayed(const Duration(seconds: 2));
-    if (await AuthService.to.userLoggedIn) {
-      intialPage = Routes.DASHBOARD_PAGE;
+    if (!(await AuthService.to.userLoggedIn)) {
+      Get.offAllNamed(Routes.LOGIN_PAGE);
     } else {
-      intialPage = Routes.LOGIN_PAGE;
+      isLoading.value = false;
     }
-    isLoading.value = false;
   }
 
   @override

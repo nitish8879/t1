@@ -53,7 +53,6 @@ class LoginPageView extends GetView<LoginPageController> {
                         style: TextStyle(
                           color: Color(0xFF94A3B8),
                           fontSize: 12,
-                          fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                           height: 0.11,
                         ),
@@ -165,7 +164,7 @@ class LoginPageView extends GetView<LoginPageController> {
                         ),
                         24.height,
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: controller.signin,
                           style: ElevatedButton.styleFrom(
                             fixedSize: const Size(double.maxFinite, 56),
                             backgroundColor: const Color(0xFF2563EB),
@@ -305,13 +304,6 @@ class LoginPageView extends GetView<LoginPageController> {
           ),
         ),
       ),
-    );
-  }
-
-  a() {
-    return const ShapeDecoration(
-      color: Color(0xffE2E8F0),
-      shape: StadiumBorder(side: BorderSide()),
     );
   }
 }
